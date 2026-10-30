@@ -22,4 +22,9 @@ public class DoctorService {
     public List<Doctor> getDoctor(){
         return doctorRepository.findAll();
     }
+
+    public Doctor getDoctorById(Long id){
+        return doctorRepository.findById(id) 
+                .orElseThrow(() -> new RuntimeException("Doctor Not Found with id " + id));
+    }
 }
