@@ -46,6 +46,8 @@ spring.datasource.password=YOUR_PASSWORD
 | POST | /api/doctors | Add a doctor |
 | GET | /api/doctors | Get all doctors |
 | GET | /api/doctors/{id} | Get one doctor by id |
+| PUT | /api/doctors/{id} | Update a doctor |
+| DELETE | /api/doctors/{id} | Delete a doctor |
 
 Example request body for POST:
 ```json
