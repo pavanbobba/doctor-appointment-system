@@ -27,4 +27,23 @@ public class DoctorService {
         return doctorRepository.findById(id) 
                 .orElseThrow(() -> new RuntimeException("Doctor Not Found with id " + id));
     }
+
+    public Doctor updateDoctor(Long id , Doctor updated){
+        Doctor existing=doctorRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("Doctor Not Found with Id " + id));
+
+        existing.setName(updated.getName());
+        existing.setSpecialization(updated.getSpecialization());
+        existing.setBio(updated.getBio());
+
+        return  doctorRepository.save(existing);
+    }
+
+    public void deleteDoctor(Long id){
+        if(!doctorRepository.existsById(id)){
+            throw new RuntimeException("Doctor not found by this Id" + id);
+        }    
+
+        doctorRepository.deleteById(id);
+    }
 }
